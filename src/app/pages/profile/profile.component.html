@@ -1,0 +1,11 @@
+<div *ngIf="auth.user | async as user">
+    <h1>Hello {{ user.displayName }}!</h1>
+    <code> {{user | json}}</code>
+  </div>
+  <div class="mb-3 row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Test</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="nombre" >
+      </div>
+    </div>
+  <button (click)="editar()">Editar</button>

@@ -1,0 +1,32 @@
+<div *ngIf="auth.user | async ; else showLogin">
+  <button class="btn btn-danger" (click)="logout()">Logout</button>
+</div>
+
+<ng-template #showLogin>
+  <div class="col-6 mx-auto">
+
+    <div class="mb-3 row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="email" >
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" [(ngModel)]="pass">
+      </div>
+    </div>
+    <div class="d-grid gap-2 d-md-flex" *ngIf="action==='login'" >
+      <button class="btn btn-primary" (click)="loginWith()">Login with Google</button>
+      <button class="btn btn-primary" (click)="customLogin()">Login with Email</button>
+    </div>
+  </div>
+</ng-template>
+<br>
+
+<p></p>
+<div class="d-grid gap-2 d-md-flex">
+  <button class="btn btn-primary" (click)="showData()">Mostrar data</button>
+  <button *ngIf="action==='register'" class="btn btn-primary" (click)="register()">Register</button>
+</div>
